@@ -12,11 +12,10 @@ RUN mkdir /usr/lib/vertx &&\
     ln -s /usr/share/vertx/mods /usr/lib/vertx/mods &&\
     mkdir /usr/share/vertx/sys-mods &&\
     ln -s /usr/share/vertx/sys-mods /usr/lib/vertx/sys-mods &&\
+    ln -s /usr/share/vertx/conf /etc/vertx &&\
     ln -s /usr/share/vertx/bin/vertx /usr/bin/vertx
 
-VOLUME /usr/lib/vertx/conf
-VOLUME /usr/lib/vertx/mods
-VOLUME /usr/lib/vertx/sys-mods
+VOLUME ["/etc/vertx", "/usr/lib/vertx/mods", "/usr/lib/vertx/sys-mods"]
 EXPOSE 8080
 
 WORKDIR /usr/share/vertx
